@@ -115,7 +115,7 @@ print(np.add(a, b))                        # [ 2  5 10 15 13]         同print(a
 print(np.add(a, 1))                        # [2 3 6 9 5]              同print(a+1) 
 print(np.subtract(a, b))                   # [ 0 -1  0  1 -5]         同print(a-b)
 print(np.multiply(a, b))                   # [ 1  6 25 56 36]         同print(a*b)
-print(np.divide(b, 2))                     # [0.5 1.5 2.5 3.5 4.5]    同print(a/b)
+print(np.divide(b, 2))                     # [0.5 1.5 2.5 3.5 4.5]    同print(b/2)
 print(np.power(a, 2))                      # [ 1  4 25 64 16]         同print(a ** 2)
 print(np.remainder(a, b))                  # [0 2 0 1 4]              同print(a % b)      
 print(np.mod(a, b))                        # [0 2 0 1 4]
