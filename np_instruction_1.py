@@ -204,3 +204,45 @@ print(np.sort(ar4, 0))
  [18 12 10  2]]
 '''
 
+'''
+连接多个数组 numpy.concatenate((a1,a2...), axis=0, out=None)
+'''
+
+n1 = np.array([[1, 3, 5],[2, 4, 6]])
+n2 = np.array([[7, 0, 8]])
+print(np.concatenate((n1, n2)))           # 数组要以序列的形式提供；默认按照axis=0连接
+'''
+[[1 3 5]
+ [2 4 6]
+ [7 0 8]]
+'''
+# 连接时，输入的数组要在维度上完全匹配，n1和n2延轴0连接的时候可以成功，但按照轴1则无法连接
+n3 = np.array([[5],[9]])
+print(np.concatenate((n1, n3),axis=1))
+'''
+[[1 3 5 5]
+ [2 4 6 9]]
+'''
+print(np.concatenate((n1, n3),axis=None))     # [1 3 5 2 4 6 5 9]       axis=None,则展平数组
+
+n4 = np.array([[2, 3, 3],[3, 9, 2]])
+print(np.concatenate((n1, n4)))
+'''
+[[1 3 5]
+ [2 4 6]
+ [2 3 3]
+ [3 9 2]]
+'''
+print(np.concatenate((n1, n4),axis=1))
+'''
+[[1 3 5 2 3 3]
+ [2 4 6 3 9 2]]
+'''
+
+# 连接具有掩码的数组时，此函数无法保留掩码，若要保留，使用numpy.ma.concatenate()
+ms = np.ma.arange(4)                     # 定义掩码数组
+ms[:] = np.ma.masked                     # 赋值掩码元素
+print(ms)                                # [-- -- -- --]
+ms1 = np.arange(2, 6)
+print(np.concatenate((ms, ms1)))         # [0 1 2 3 2 3 4 5]
+print(np.ma.concatenate((ms, ms1)))      # [-- -- -- -- 2 3 4 5]
