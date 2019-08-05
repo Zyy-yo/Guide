@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import re
 # ———— Series ————
 # Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)
@@ -139,6 +140,35 @@ print(a2[b])                             # 提取方式
 4    1.8
 dtype: object
 '''
+# Series中的多重索引
+s1 = pd.Series(np.random.randn(10),
+            index=[[1, 1, 1, 2, 2, 2, 3, 3, 4, 4],
+                    ['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'a', 'b']])
+print(s1)
+'''
+1  a   -0.478700
+   b   -0.932857
+   c   -0.183406
+2  a    0.589403
+   b   -2.206126
+   c    0.884077
+3  a    0.144808
+   b   -0.596608
+4  a    0.570762
+   b    0.131367
+dtype: float64
+'''
+s = s1.unstack()                 # 多层次索引下的Series转化为DataFrame，一级索引是索引，二级索引转变为column
+print(s)
+'''
+          a         b         c
+1  0.677861 -0.003082 -0.587209
+2  1.144549  0.211008 -0.138527
+3  0.907053  0.753469       NaN
+4 -0.961919  1.081254       NaN
+'''
+print(s.stack())                # 转回Series
+
 
 # ———— DataFrame ———— 可以理解为由相同索引的Series组成的字典类型
 # DataFrame(data=None, index=None, columns=None, dtype=None, copy=False)
