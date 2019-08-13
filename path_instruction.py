@@ -13,6 +13,8 @@ print(os.path.isfile('d:/PY/zodiac'))            # False
 print(os.path.isfile('d:/PY/zodiac.py'))          # True
 # 路径的连接 os.path.join(path, *paths)
 
+# 指定工作路径
+os.chdir(r'D:\PY')
 
 from pathlib import Path
 # 根据相对路径的.获取当前的绝对路径
@@ -20,6 +22,6 @@ p = Path('.')                             # 与os不同，pathlib里要先进行
 print(p.resolve())                              # C:\Users\lenovo
 # 创建目录
 p1 = Path('d:/PY/Test')          # 先将要创建的目录封装
-Path.mkdir(p)       # mkdir来进行创建
+Path.mkdir(p1)       # mkdir来进行创建
 p2 = Path('d:/PY/Test/a')       # 如果要创建的目录有两层以上,如PY为已有目录，在该目录下创建Test,并且在Test里再创建a目录
-Path.mkdir(p, parents=True)     # 此时，parents要为True,则能创建目录，为False则出现错误“找不到指定路径”
+Path.mkdir(p2, parents=True)     # 此时，parents要为True,则能创建目录，为False则出现错误“找不到指定路径”
