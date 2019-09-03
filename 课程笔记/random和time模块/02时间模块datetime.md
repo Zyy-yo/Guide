@@ -67,9 +67,9 @@ print(t2 - t1)             # datetime格式可以计算，相减得到时间差
 # datetime.timedelta：时间差
 import datetime
 today = datetime.datetime.today()             # datetime.datetime也有.today()方法
-yestoday = today - datetime.timedelta(1)
+yesterday = today - datetime.timedelta(1)
 print(today)
-print(yestoday)
+print(yesterday)
 print(today + datetime.timedelta(10))           # 时间差主要用来作时间的加减法
 ```
 
