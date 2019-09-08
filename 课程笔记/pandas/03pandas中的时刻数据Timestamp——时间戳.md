@@ -10,13 +10,6 @@ pandas.Timestamp()
 ```
 
 
-
-
-    '\nPandas时刻数据：Timestamp\n\n时刻数据代表时间点，是pandas的数据类型，是将值与时间点相关联的最基本类型的时间序列数据\n\npandas.Timestamp()\n\n'
-
-
-
-
 ```python
 # pd.Timestamp()
 import numpy as np
@@ -141,21 +134,14 @@ Pandas时间戳索引：DatetimeIndex
 ```
 
 
-
-
-    '\nPandas时间戳索引：DatetimeIndex\n\n核心：pd.date_range()\n\n'
-
-
-
-
 ```python
 # pd.DatetimeIndex()与TimeSeries时间序列
 
 rng = pd.DatetimeIndex(['12/1/2017','12/2/2017','12/3/2017','12/4/2017','12/5/2017'])
 print(rng, type(rng))
 print(rng[0], type(rng[0]))
-     # 直接生成时间戳索引，支持str、datetime.datetime
-    # 单个时间戳为Timestamp，多个时间戳为DatetimeIndex
+     # 直接生成时间戳索引，支持str、datetime.datetime。但参数必须是列表格式，即使是单个时间数据。
+    # 数据类型为DatetimeIndex，索引到里面的元素类型为Timestamp
 
 s = pd.Series(np.random.rand(len(rng)), index=rng)
 print(s, type(s))
