@@ -181,7 +181,7 @@ print(r2)
 r3 = pd.date_range(end='1.30.2017 14:00:00', periods=10)  # end + period
 print(r3)
 
-r4 = pd.date_range(end='1.30.2017 14:00:00', periods=10, normalize=True)  # normalize=True,将日期规范为午夜，打印发现时间没有了，只有日期
+r4 = pd.date_range(end='1.30.2017 14:00:00', periods=10, normalize=True)  # normalize=True,将日期里的时间规范为午夜0点
 print(r4)
 
 # 直接生成DatetimeIndex
